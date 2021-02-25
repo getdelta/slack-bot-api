@@ -80,7 +80,7 @@ class Bot extends EventEmitter {
          if (this.channels) {
              return Vow.fulfill({ channels: this.channels });
          }
-         return this._api('channels.list');
+         return this._api('conversations.list');
       }
 
     /**
@@ -104,7 +104,7 @@ class Bot extends EventEmitter {
             return Vow.fulfill({ groups: this.groups });
         }
 
-        return this._api('groups.list');
+        return this._api('conversations.list');
     }
 
     /**
@@ -257,7 +257,7 @@ class Bot extends EventEmitter {
      * @returns {vow.Promise}
      */
     openIm(userId) {
-        return this._api('im.open', {user: userId});
+        return this._api('conversations.open', {user: userId});
     }
 
     /**
@@ -268,7 +268,7 @@ class Bot extends EventEmitter {
         if (this.ims) {
             return Vow.fulfill({ ims: this.ims });
         }
-        return this._api('im.list');
+        return this._api('conversations.list');
     }
 
     /**
